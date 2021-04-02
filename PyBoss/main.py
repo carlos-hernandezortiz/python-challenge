@@ -70,7 +70,7 @@ with open(csvpath,'r',newline='', encoding='utf-8') as csvfile:
     csvreader = csv.reader(csvfile,delimiter=',')
     #removing the header
     csvheader = next(csvreader)
-    #
+    #populating lists according to the logic required!
     for row in csvreader:
         emp_id_list.append(row[0])
         first_name_list.append(row[1].split(" ")[0])
@@ -82,8 +82,9 @@ with open(csvpath,'r',newline='', encoding='utf-8') as csvfile:
         ssn_modified = "***"+"-"+"**"+"-"+ssn_original[2]
         ssn_list.append(ssn_modified)
         state_list.append(us_state_abbrev[row[4]])
+    #zipping the lists to write them on a new csv file
     output = zip(emp_id_list,first_name_list,last_name_list,dob_list,ssn_list,state_list)
-#writing on text files
+#writing on text file
 with open(output_path, "w", newline='',encoding='utf-8\n') as datafile:
     writer =csv.writer(datafile)
     writer.writerow(["Emp ID","First Name","Last Name","DOB","SSN","State"])
