@@ -10,7 +10,7 @@ for i in range(1,3):
         #paragraph = "Adam Wayne, the conqueror, with his face flung back and his mane like a lion's, stood with his great sword point upwards, the red raiment of his office flapping around him like the red wings of an archangel. And the King saw, he knew not how, something new and overwhelming. The great green trees and the great red robes swung together in the wind. The preposterous masquerade, born of his own mockery, towered over him and embraced the world. This was the normal, this was sanity, this was nature, and he himself, with his rationality, and his detachment and his black frock-coat, he was the exception and the accident a blot of black upon a world of crimson and gold."
         paragraph = txtfile.read()
         #What this part of the code does is that we indicate that we are using regular expression to split the paragraph.
-        #positive lookbehind assertion y despues revisamos que despues de cualquier punto, singo de exclamacion o interrogacion sea el punto de partida para separarlo.
+        #positive lookbehind assertion and then we consider that after any point, exclamation mark or question mark, it will be our starting point to split it. 
         sentences = re.split("(?<=[.!?]) +", paragraph)
         words_list = []
         total_words = 0
@@ -28,7 +28,7 @@ for i in range(1,3):
         letter_count = round((suma_letras-count_points)/total_words,2)
         sentece_length = total_words/len(sentences)
 
-    with open(output_txt, "w", newline='',encoding='utf-8\n') as datafile:
+    with open(output_txt, "w", newline='',encoding='utf-8') as datafile:
         print("Paragraph Analysis")
         print("-----------------------")
         print(f'Approximate Word Count: {total_words}')
